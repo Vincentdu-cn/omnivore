@@ -17,6 +17,7 @@ COPY /packages/text-to-speech/package.json ./packages/text-to-speech/package.jso
 COPY /packages/content-handler/package.json ./packages/content-handler/package.json
 COPY /packages/liqe/package.json ./packages/liqe/package.json
 
+RUN yarn upgrade @npmcli/run-script@6.0.2
 RUN yarn install --pure-lockfile
 
 ADD /packages/readabilityjs ./packages/readabilityjs

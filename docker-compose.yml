@@ -55,8 +55,8 @@ services:
       - IMAGE_PROXY_SECRET=some-secret
       - JWT_SECRET=some_secret
       - SSO_JWT_SECRET=some_sso_secret
-      - CLIENT_URL=http://localhost:3000
-      - GATEWAY_URL=http://localhost:8080/api
+      - CLIENT_URL=http://192.168.199.110:3000
+      - GATEWAY_URL=http://192.168.199.110:8080/api
       - CONTENT_FETCH_URL=http://content-fetch:8080/?token=some_token
     depends_on:
       migrate:
@@ -68,17 +68,17 @@ services:
       dockerfile: ./packages/web/Dockerfile
       args:
         - APP_ENV=prod
-        - BASE_URL=http://localhost:3000
-        - SERVER_BASE_URL=http://localhost:4000
-        - HIGHLIGHTS_BASE_URL=http://localhost:3000
+        - BASE_URL=http://192.168.199.110:3000
+        - SERVER_BASE_URL=http://192.168.199.110:4000
+        - HIGHLIGHTS_BASE_URL=http://192.168.199.110:3000
     container_name: "omnivore-web"
     ports:
       - "3000:8080"
     environment:
       - NEXT_PUBLIC_APP_ENV=prod
-      - NEXT_PUBLIC_BASE_URL=http://localhost:3000
-      - NEXT_PUBLIC_SERVER_BASE_URL=http://localhost:4000
-      - NEXT_PUBLIC_HIGHLIGHTS_BASE_URL=http://localhost:3000
+      - NEXT_PUBLIC_BASE_URL=http://192.168.199.110:3000
+      - NEXT_PUBLIC_SERVER_BASE_URL=http://192.168.199.110:4000
+      - NEXT_PUBLIC_HIGHLIGHTS_BASE_URL=http://192.168.199.110:3000
     depends_on:
       api:
         condition: service_healthy

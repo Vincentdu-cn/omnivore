@@ -24,6 +24,7 @@ COPY .eslintrc .
 
 COPY /packages/web/package.json ./packages/web/package.json
 
+RUN yarn upgrade @npmcli/run-script@6.0.2
 RUN yarn install --pure-lockfile
 ADD /packages/web ./packages/web
 
